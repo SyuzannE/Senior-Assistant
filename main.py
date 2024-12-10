@@ -16,18 +16,21 @@ from record import speech_to_text
 
 # Load API keys
 load_dotenv()
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+#OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY")
-elevenlabs.set_api_key(os.getenv("ELEVENLABS_API_KEY"))
-
-# Initialize APIs
-gpt_client = openai.Client(api_key=OPENAI_API_KEY)
+elevenlabs.api_key = os.getenv("ELEVENLABS_API_KEY")
 deepgram = Deepgram(DEEPGRAM_API_KEY)
+
+
+elevenlabs.set_api_key("sk_4798653cc4dbc6e47c90a866f363c71575e8551e5a142c1c")
+deepgram.set_api_key("085947e9b8bf272ae3253755e1d4f18aa29eec78")
+# Initialize APIs
+
 # mixer is a pygame module for playing audio
 mixer.init()
 
-# Change the context if you want to change Jarvis' personality
-context = "You are Jarvis, Alex's human assistant. You are witty and full of personality. Your answers should be limited to 1-2 short sentences."
+
+context = "You are Aria, Seniors human assistant. in Senior community. You are witty and full of personality. Your answers should be limited to 1-2 short sentences."
 conversation = {"Conversation": []}
 RECORDING_PATH = "audio/recording.wav"
 
@@ -43,17 +46,51 @@ def request_gpt(prompt: str) -> str:
     Returns:
         The response from the API.
     """
-    response = gpt_client.chat.completions.create(
-        messages=[
-            {
-                "role": "user",
-                "content": f"{prompt}",
-            }
-        ],
-        model="gpt-3.5-turbo",
-    )
-    return response.choices[0].message.content
 
+
+    from openai import AzureOpenAI  
+    
+    endpoint = os.getenv("ENDPOINT_URL", "https://jarvisaibotufar.openai.azure.com/")  
+    deployment = os.getenv("DEPLOYMENT_NAME", "gpt-35-turbo-16k")  
+    subscription_key = os.getenv("AZURE_OPENAI_API_KEY", "1etwpF6fKvntB3IY160xU2i4s8ONsg3EEjEyTqaV8Lxwr7jmVoglJQQJ99AJACYeBjFXJ3w3AAABACOGUbf0")  
+    
+    # Initialize Azure OpenAI client with key-based authentication
+    client = AzureOpenAI(  
+        azure_endpoint=endpoint,  
+        api_key=subscription_key,  
+        api_version="2024-05-01-preview",  
+    )  
+
+    # Prepare the chat prompt  
+    chat_prompt = [
+    {
+        "role": "system",
+        "content": "Elders AI assistant" + context
+    },
+    {
+        "role": "user",
+        "content":"Senior Andranik" + prompt
+    }
+]  
+    
+    # Include speech result if speech is enabled  
+    speech_result = chat_prompt  
+    
+    # Generate the completion  
+    completion = client.chat.completions.create(  
+        model=deployment,  
+        messages=speech_result,  
+        max_tokens=800,  
+        temperature=0.7,  
+        top_p=0.95,  
+        frequency_penalty=0,  
+        presence_penalty=0,  
+        stop=None,  
+        stream=False  
+    )  
+    
+    return completion.choices[0].message.content;
+    
 
 async def transcribe(
     file_name: Union[Union[str, bytes, PathLike[str], PathLike[bytes]], int]
@@ -104,8 +141,7 @@ if __name__ == "__main__":
 
         # Get response from GPT-3
         current_time = time()
-        context += f"\nAlex: {string_words}\nJarvis: "
-        response = request_gpt(context)
+        response = request_gpt(string_words)
         context += response
         gpt_time = time() - current_time
         log(f"Finished generating response in {gpt_time:.2f} seconds.")
@@ -113,7 +149,7 @@ if __name__ == "__main__":
         # Convert response to audio
         current_time = time()
         audio = elevenlabs.generate(
-            text=response, voice="Adam", model="eleven_monolingual_v1"
+            text=response, voice="Aria", model="eleven_multilingual_v2"
         )
         elevenlabs.save(audio, "audio/response.wav")
         audio_time = time() - current_time

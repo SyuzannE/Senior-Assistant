@@ -8,6 +8,7 @@ from pathlib import Path
 from rhasspysilence import WebRtcVadRecorder, VoiceCommand, VoiceCommandResult
 import pyaudio
 
+
 pa = pyaudio.PyAudio()
 
 
@@ -17,8 +18,8 @@ def speech_to_text() -> None:
     Saves audio to audio/recording.wav
     """
     recorder = WebRtcVadRecorder(
-        vad_mode=3,
-        silence_seconds=4,
+        vad_mode=2,
+        silence_seconds=3,
     )
     recorder.start()
     # file directory
