@@ -1,4 +1,4 @@
-# JARVIS
+# Senior Assistant
 
 <p align="center">
   <img src="media/cqb_conv.png" alt="JARVIS helping me choose a firearm" width="100%"/>
@@ -15,13 +15,6 @@ Your own voice personal assistant: Voice to Text to LLM to Speech, displayed in 
 5. :loud_sound: Speech is played using <a href="https://www.pygame.org/wiki/GettingStarted" target="_blank">Pygame</a>
 6. :computer: Conversation is displayed in a webpage using <a href="https://github.com/Avaiga/taipy" target="_blank">Taipy</a>
 
-## Video Demo
-
-<p align="center">
-  <a href="https://youtu.be/aIg4-eL9ATc" target="_blank">
-    <img src="media/git_thumb.png" alt="Youtube Devlog" width="50%"/>
-  </a>
-</p>
 
 ## Requirements
 
