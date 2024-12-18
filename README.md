@@ -51,7 +51,7 @@ ELEVENLABS_API_KEY=XXX...XXX
 python display.py
 ```
 
-2. In another terminal, run `jarvis.py` to start the voice assistant
+2. In another terminal, run `main.py` to start the voice assistant
 
 ```bash
 python main.py
@@ -75,7 +75,7 @@ Finished generating audio in 1.85 seconds.
 Speaking...
 
  --- Senior Andranik: good morning jarvis
- --- Aria: Good morning, Alex! How can I assist you today?
+ --- Aria: Good morning, Senior Andranik! How can I assist you today?
 
 Listening...
 ...
