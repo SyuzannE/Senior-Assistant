@@ -164,7 +164,7 @@ if __name__ == "__main__":
             f.write(f"{response}\n")
         sound.play()
         pygame.time.wait(int(sound.get_length() * 1000))
-        print(f"\n --- USER: {string_words}\n --- JARVIS: {response}\n")
+        print(f"\n --- ARIA: {string_words}\n --- Senior Andranik: {response}\n")
 
 
 
