@@ -1,5 +1,6 @@
 # Senior Assistant
 
+Your Senior AI Voice Assistant is designed to assist elderly users in a Senior Smart Community by providing easy-to-use voice-based interaction with various smart systems and services. The project focuses on helping seniors navigate everyday tasks with voice commands, improving their independence and quality of life.
 
 
 ## How it works
@@ -80,7 +81,4 @@ Speaking...
 Listening...
 ...
 ```
-
-<p align="center">
-  <img src="media/good_morning.png" alt="Saying good morning" width="80%"/>
-</p>"# Senior-Assistant" 
+<img width="955" alt="image" src="https://github.com/user-attachments/assets/a97f9c34-a5f9-4258-a1cb-62120fa58ea5" />
