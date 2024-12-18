@@ -74,8 +74,8 @@ Finished generating response in 0.72 seconds.
 Finished generating audio in 1.85 seconds.
 Speaking...
 
- --- USER: good morning jarvis
- --- JARVIS: Good morning, Alex! How can I assist you today?
+ --- Senior Andranik: good morning jarvis
+ --- Aria: Good morning, Alex! How can I assist you today?
 
 Listening...
 ...
