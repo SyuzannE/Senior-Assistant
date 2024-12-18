@@ -1,4 +1,4 @@
-# Senior Assistant
+# Senior AI Voice Assistant
 
 Your Senior AI Voice Assistant is designed to assist elderly users in a Senior Smart Community by providing easy-to-use voice-based interaction with various smart systems and services. The project focuses on helping seniors navigate everyday tasks with voice commands, improving their independence and quality of life.
 
