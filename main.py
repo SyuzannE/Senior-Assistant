@@ -1,4 +1,4 @@
-"""Main file for the Jarvis project"""
+"""Main file for the Senior Smart Cpmmunity Project project"""
 import os
 from os import PathLike
 from time import time
@@ -19,18 +19,19 @@ load_dotenv()
 #OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY")
 elevenlabs.api_key = os.getenv("ELEVENLABS_API_KEY")
+
 deepgram = Deepgram(DEEPGRAM_API_KEY)
 
 
 elevenlabs.set_api_key("sk_4798653cc4dbc6e47c90a866f363c71575e8551e5a142c1c")
-deepgram.set_api_key("085947e9b8bf272ae3253755e1d4f18aa29eec78")
+
 # Initialize APIs
 
 # mixer is a pygame module for playing audio
 mixer.init()
 
 
-context = "You are Aria, Seniors human assistant. in Senior community. You are witty and full of personality. Your answers should be limited to 1-2 short sentences."
+context = "You are Aria, Seniors human assistant. A friendly AI robot for seniors is a compassionate and approachable companion designed to provide assistance, safety, and companionship. suggesting activities like Playground, Art and Craft Room, Game Room,."
 conversation = {"Conversation": []}
 RECORDING_PATH = "audio/recording.wav"
 
@@ -164,3 +165,26 @@ if __name__ == "__main__":
         sound.play()
         pygame.time.wait(int(sound.get_length() * 1000))
         print(f"\n --- USER: {string_words}\n --- JARVIS: {response}\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
